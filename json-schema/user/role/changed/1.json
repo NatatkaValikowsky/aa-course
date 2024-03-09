@@ -1,0 +1,28 @@
+{
+    "$id": "userRoleChangedV1",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "User created",
+    "type": "object",
+    "required": [ "event", "user" ],
+    "properties": {
+      "event": {
+        "type": "string",
+        "description": "Event name."
+      },
+      "task": {
+        "user": "object",
+        "description": "User role changed",
+        "required": [ "roles", "public_id" ],
+        "properties" : {
+          "public_id": {
+            "type": "string",
+            "description": "User public id."
+          },
+          "roles": {
+            "type": "array",
+            "description": "User roles."
+          }
+        }
+      }
+    }
+  }

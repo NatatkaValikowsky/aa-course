@@ -1,0 +1,55 @@
+{
+    "$id": "transactionCreatedV1",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Task created",
+    "type": "object",
+    "required": [ "event_id", "event_name", "event_version", "event_time", "event_producer", "data" ],
+    "properties": {
+      "event_id": {
+        "type": "string"
+      },
+      "event_name": {
+        "type": "string"
+      },
+      "event_version": {
+        "type": "integer"
+      },
+      "event_time": {
+        "type": "string"
+      },
+      "event_producer": {
+        "type": "string"
+      },
+      "data": {
+        "type": "object",
+        "description": "Created transaction",
+        "required": [ "public_id", "type", "status", "amount", "created_at", "user_public_id", "meta" ],
+        "properties" : {
+          "public_id": {
+            "type": "string",
+            "description": "Transaction public id."
+          },
+          "type": {
+            "type": "string",
+            "description": "Transaction type."
+          },
+          "status": {
+            "type": "string",
+            "description": "Transaction status."
+          },
+          "user_public_id": {
+            "type": "string",
+            "description": "Transaction user public id."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "Transaction created at."
+          },
+          "meta": {
+            "type": "array",
+            "description": "Transaction meta data."
+          }
+        }
+      }
+    }
+  }
