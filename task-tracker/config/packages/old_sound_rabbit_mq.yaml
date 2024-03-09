@@ -1,0 +1,25 @@
+old_sound_rabbit_mq:
+    connections:
+        default:
+            url: '%env(RABBITMQ_URL)%'
+    producers:
+        task:
+            connection: default
+            exchange_options: { name: 'task', type: topic }
+    consumers:
+        user_stream:
+            connection: default
+            exchange_options: { name: user, type: topic }
+            queue_options:
+                name: user_stream_qu
+                routing_keys:
+                    - 'user_stream'
+            callback: Task\Consumer\UserStreamConsumer
+        user:
+            connection: default
+            exchange_options: { name: user, type: topic }
+            queue_options:
+                name: user_qu
+                routing_keys:
+                    - 'user'
+            callback: Task\Consumer\UserConsumer
