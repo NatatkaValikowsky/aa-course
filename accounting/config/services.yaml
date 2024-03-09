@@ -33,3 +33,8 @@ services:
         factory: [ '@doctrine.orm.entity_manager', getRepository ]
         arguments:
             - Accounting\Entity\Balance
+
+    Accounting\Repository\TaskRepository:
+        factory: [ '@doctrine.orm.entity_manager', getRepository ]
+        arguments:
+            - Accounting\Entity\Task
