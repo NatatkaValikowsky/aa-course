@@ -1,0 +1,43 @@
+{
+    "$id": "taskAssignedV2",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Task assigned",
+    "type": "object",
+    "required": [ "event_id", "event_name", "event_version", "event_time", "event_producer", "data" ],
+    "properties": {
+      "event_id": {
+        "type": "string"
+      },
+      "event_name": {
+        "type": "string"
+      },
+      "event_version": {
+        "type": "integer"
+      },
+      "event_time": {
+        "type": "string"
+      },
+      "event_producer": {
+        "type": "string"
+      },
+      "data": {
+        "type": "object",
+        "description": "Assigned task",
+        "required": [ "public_id", "status", "assignee" ],
+        "properties" : {
+          "public_id": {
+            "type": "string",
+            "description": "Task public id."
+          },
+          "status": {
+            "type": "string",
+            "description": "Task status."
+          },
+          "assignee": {
+            "type": "string",
+            "description": "Task assignee account public id."
+          }
+        }
+      }
+    }
+  }

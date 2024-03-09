@@ -9,13 +9,9 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         public: true
-
-        bind:
-            $projectDirectory: '%kernel.project_dir%'
-
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
-    Task\:
+    Accounting\:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
@@ -23,11 +19,17 @@ services:
             - '../src/Kernel.php'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
-    Task\Repository\UserRepository:
+    Accounting\Repository\UserRepository:
         factory: [ '@doctrine.orm.entity_manager', getRepository ]
         arguments:
-            - Task\Entity\User
-    Task\Repository\TaskRepository:
+            - Accounting\Entity\User
+
+    Accounting\Repository\TransactionRepository:
         factory: [ '@doctrine.orm.entity_manager', getRepository ]
         arguments:
-            - Task\Entity\Task
+            - Accounting\Entity\Transaction
+
+    Accounting\Repository\BalanceRepository:
+        factory: [ '@doctrine.orm.entity_manager', getRepository ]
+        arguments:
+            - Accounting\Entity\Balance

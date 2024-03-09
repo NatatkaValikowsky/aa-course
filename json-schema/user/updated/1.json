@@ -1,0 +1,44 @@
+{
+    "$id": "userUpdatedV1",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "User created",
+    "type": "object",
+    "required": [ "event", "user" ],
+    "properties": {
+      "event": {
+        "type": "string",
+        "description": "Event name."
+      },
+      "task": {
+        "user": "object",
+        "description": "Updated user",
+        "required": [ "email", "name", "roles", "public_id", "created_at", "updated_at" ],
+        "properties" : {
+          "public_id": {
+            "type": "string",
+            "description": "User public id."
+          },
+          "name": {
+            "type": "string",
+            "description": "User name."
+          },
+          "email": {
+            "type": "string",
+            "description": "User email."
+          },
+          "roles": {
+            "type": "array",
+            "description": "User roles."
+          },
+          "created_at": {
+            "type": "string",
+            "description": "User created at datetime."
+          },
+          "updated_at": {
+            "type": "string",
+            "description": "User updated at datetime."
+          }
+        }
+      }
+    }
+  }
